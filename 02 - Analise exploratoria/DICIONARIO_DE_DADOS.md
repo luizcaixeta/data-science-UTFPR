@@ -2,7 +2,7 @@
 
 | COLUNAS|	TIPO |	TAMANHO |	NULL ou NOT NULL |	DESCRIÇÃO DOS CAMPOS|
 |--------|------|----------|--------------------|-------------------------|
-| ATENDIMENTO_ANO|	int|	-|  NOT NULL|	Ano em que foi realizado ao atendimento|
+| ATENDIMENTO_ANO|	int|	-|  NOT NULL|	Ano em que foi realizado o atendimento|
 | ATENDIMENTO_BAIRRO_NOME|	varchar|	20|	NOT NULL|	Nome do bairro em que foi realizado o atendimento|
 | EQUIPAMENTO_URBANO_NOME|	varchar|	70|	NULL|	Nome do equipamento urbano|
 | FLAG_EQUIPAMENTO_URBANO|   	char|	3|	NOT NULL|	Flag para identificar se é um equipamento urbano ou não|
