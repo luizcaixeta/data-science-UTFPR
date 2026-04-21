@@ -27,6 +27,8 @@ COLUNAS_TEXTO = (
     "NUMERO_PROTOCOLO_156",
 )
 
+TESTE = ("ATENDIMENTO_BAIRRO_NOME",)
+
 COLUNAS_BINARIAS = (
     "FLAG_EQUIPAMENTO_URBANO", 
     "FLAG_FLAGRANTE",
@@ -37,24 +39,10 @@ COLUNAS_BINARIAS = (
     "NATUREZA5_DEFESA_CIVIL",
 )
 
-COLUNAS_INT = (
-    "OCORRENCIA_DIA_SEMANA",
-    "OCORRENCIA_MES",
-)
+COLUNA_DIA_SEMANA = ("OCORRENCIA_DIA_SEMANA",)
 
-MAPA_DIA_SEMANA = {
-    "domingo": 1,
-    "segunda": 2,
-    "segunda-feira": 2,
-    "terca": 3,
-    "terca-feira": 3,
-    "quarta": 4,
-    "quarta-feira": 4,
-    "quinta": 5,
-    "quinta-feira": 5,
-    "sexta": 6,
-    "sexta-feira": 6,
-    "sabado": 7,
-}
+COLUNA_MES = ("OCORRENCIA_MES",)
 
 COLUNA_HORA = "OCORRENCIA_HORA"
+
+COLUNA_BAIRRO = ("ATENDIMENTO_BAIRRO_NOME", )
