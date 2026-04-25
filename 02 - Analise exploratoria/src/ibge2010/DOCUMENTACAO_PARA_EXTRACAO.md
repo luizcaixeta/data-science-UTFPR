@@ -1,111 +1,112 @@
 # Objetivo
 
-O objetivo desta documentação é orientar a extração e o tratamento de dados socioeconômicos do censo demográfico de 2010, com foco no indicadores de renda e alfabetização em nível de bairro para o município de Curitiba.
+Os dados extraídos serão utilizados para investigar possíveis relações entre fatores socioeconômicos e as ocorrências registradas pela SIGESGUARDA, permitindo análises como:
 
-Esses dados serão utilizados para investigar possíveis relações entre fatores socioeconômicos e as ocorrências registradas pela SIGESGUARDA.
+- relação entre renda e crimes violentos;
+- relação entre renda e crimes patrimoniais;
+- relação entre alfabetização e ocorrências registradas;
+- comparação entre bairros com diferentes níveis de vulnerabilidade socioeconômica;
+- cálculo de taxas de ocorrências por população residente.
+
+Como os dados do Censo 2010 são disponibilizados originalmente em nível de setor censitário, foi necessário relacionar os setores aos bairros de Curitiba e, posteriormente, agregar as informações socioeconômicas em nível de bairro.
 
 ---
 
-# Fonte da documentação
+# Fontes utilizadas
 
-As informações utilizadas nesta documentação foram extraídas da documentação oficial do IBGE referente às variáveis do universo do censo demográfico de 2010 por setores censitários. 
+As informações utilizadas nessa etapa do trabalho foram extraídas da documentação oficial do IBGE referentes as variáveis do universo do Censo Demográfico de 2010 por setores censitários.
 
-Os documentos utilizados estão disponíveis em:
+Fontes: 
 
-https://www.cidadessustentaveis.org.br/arquivos/SIG/documentacao-sig/IBGE_BR-Setores-Censitarios_Censo%202010_Variaveis-universo.pdf
+1. Documentação oficial: para compreensão da base de dados foi utilizado o conteúdo da página 34-36, 45-46, 79-81, 140-143, 163-171.
+
+https://www.cidadessustentaveis.org.br/arquivos/SIG/documentacao-sig/IBGE_BR-Setores-Censitarios_Censo%202010_Variaveis-universo.pdf 
+  
+2. Além da documentação oficial, a seguinte monografia serviu de apoio para compreensão de execução prática:
 
 http://www.repositorio.poli.ufrj.br/monografias/monopoli10026310.pdf
+
+3. Para validação dos resultados (ainda não concluída), está sendo utilizada a referência:
+
+- https://www.coreconpr.gov.br/wp-content/uploads/2016/07/bairros.pdf
+
+Ainda, foi utilizado como tutorial breve:
+
+1. https://ipeagit.github.io/censobr_oficina_abep_2024/5_agregados_setores.html
 
 ---
 
 # Estrutura dos dados do censo demográfico 2010
 
-os dados do censo demográfico de 2010 podem ser obtidos via FTP do IBGE no diretório:
+Os dados do censo demográfico de 2010 foram obtidos via FTP do IBGE no diretório:
 
-`/Censos/Censo_Demografico_2010/Resultados_do_Universo/Agregados_por_Setores`
+```
+/Censos/Censo_Demografico_2010/Resultados_do_Universo/Agregados_por_Setores
+```
+
+os dados são disponibilizados separadamente para cada Unidade da Federação (UF). Neste projeto, serão utilizado os arquivos referentes ao estado do Paraná, filtrando para o município de Curitiba.
 
 ---
 
 # Organização dos arquivos
 
-Os dados do censo de 2010 são disponibilizados separadamente para cada Unidade da Federação (UF). Cada UF possui um conjunto de 18 arquivos, organizados em 10 grupos temáticos.
+Os dados do censo demográfico de 2010 estão organizados em grupos temáticos. Cada grupo contém informações específicas sobre população, domicílios e características socioeconômicas. Os grupos de arquivos utilizados foram:
 
-## Grupos de arquivos
+## Básico
 
-### Básico 
+Contém os códigos e nomes das subdivisões geográficas, além das informações básicas do cadastro territorial.
 
-Contém os códigos e nomes das subdivisões geográficas, além das informações básicas do cadastro de áreas.
+Esse grupo foi fundamental para relacionar:
 
-- Quantidade de arquivos: 1
+- setor censitário;
+- município;
+- bairro.
 
-### Domicílio
+## Alfabetização
 
-Contém informações sobre os moradores, segmentadas por sexo, faixa etária e características dos domicílios.
+Contém informações sobre alfabetização da população residente, organizadas por sexo e idade. Esses dados foram utilizados para calcular indicadores de alfabetização e analfabetismo por bairro.
 
-- Quantidade de arquivos: 2
+Para isso, os dados de alfabetização foram extraídos em nível de setor censitário e posteriormente relacionados aos bairros de Curitiba por meio do arquivo `Basico_PR.csv`.
 
-### Alfabetização
+Como o arquivo de alfabetização contém apenas a quantidade de pessoas alfabetizadas, s
+também foi utilizado os dados de população por faixa etária para calcular as taxas percentuais.
 
-Contém informações sobre alfabetização da população residente, segmentadas por sexo e idade.
+A metodologia utilizada seguiu as seguintes etapas:
 
-- Quantidade de arquivos: 2
+1. identificar os setores censitários pertencentes a Curitiba (feito na etapa anterior);
+2. relacionar cada setor censitário ao respectivo bairro;
+3. obter a quantidade de pessoas alfabetizadas por setor censitário;
+4. obter a população total da mesma faixa etária;
+5. agregar os dados por bairro;
+6. calcular os percentuais de alfabetização e analfabetismo.
 
-### Cor e raça 
+Para a taxa de analfabetismo, foi utilizado:
 
-Contém informações sobre cor ou raça da população, segmentadas por sexo e idade.
+$$
+    \text{Analfabetismo} = 100 - \text{Alfabetização}
+$$
 
-- Quantidade de arquivos: 3
+Nesse projeto as taxas foram calculadas para a população de 15 anos ou mais.
 
-### Parentesco
+## Renda 
 
-Contém informações sobre relações de parentesco da população residente.
+Contém informações sobre rendimento nominal mensal da população, domicílios e responsáveis pelos domicílios. Esses dados foram utilizados para calcular indicadores de renda e vulnerabilidade econômica por bairro.
 
-- Quantidade de arquivos: 4
+Os dados de renda foram extraídos em nível de setor censitário e associados aos bairros por meio do arquivo `Basico_PR.csv`, seguindo a metodologia anterior. 
 
-### Registro civil
+A metodologia utilizada seguiu as seguintes etapas:
 
-Contém informações sobre registro de nascimento da população.
+1. identificar os setores censitários pertencentes a Curitiba (feito na primeira etapa);
+2. relacionar cada setor censitário ao respectivo bairro;
+3. extrair as variáveis de renda por setor censitário;
+4. agregar os dados por bairro;
+5. calcular indicadores percentuais de renda.
 
-- Quantidade de arquivos: 1
+Os percentuais calculados foram:
 
-### Entorno
+- percentual de pessoas sem rendimento;
+- percentual de pessoas com rendimento de até 1 salário mínimo;
+- percentual de pessoas com rendimento de até 2 salários mínimos;
+- percentual de pessoas com rendimento acima de 5 salários mínimos.
 
-Contém informações relacionadas ao entorno das quadras e faces dos setores censitários.
-
-- Quantidade de arquivos: 5
-
-### Renda 
-
-Contém informações sobre rendimentos dos domicílios, moradores e responsáveis pelo domicílio.
-
-- Quantidade de arquivos: 3
-
----
-
-# Estrutura do código do setor censitário
-
-O código do setor censitário é composto por 15 digitos, organizados da seguinte forma: 
-
-`UFMMMMMDDSDSSSS`
-
-| Componente | Descrição |
-|---|---|
-| UF | Unidade da Federação |
-| MMMMM | Município |
-| DD | Distrito |
-| SD | Subdistrito |
-| SSSS | Setor censitário |
-
----
-
-# Estrutura do código do bairro
-
-O código do bairro é composto por 10 dígitos, organizados da seguinte forma:
-
-`UFMMMMMBBB`
-
-| Componente | Descrição |
-|---|---|
-| UF | Unidade da Federação |
-| MMMMM | Município |
-| BBB | Bairro |
+Todas as taxas foram calculadas em relação a população do bairro.
