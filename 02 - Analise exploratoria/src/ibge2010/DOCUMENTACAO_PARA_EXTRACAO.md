@@ -110,3 +110,13 @@ Os percentuais calculados foram:
 - percentual de pessoas com rendimento acima de 5 salários mínimos.
 
 Todas as taxas foram calculadas em relação a população do bairro.
+
+### PessoaRenda
+
+Além do arquivo `PessoaRenda_PR.csv`, utilizado para calcular percentuais de renda da população de 10 anos ou mais, também foi utilizado o arquivo `ReponsavelRenda_PR.csv` para calcular indicadores de renda das pessoas responsáveis pela moradia. Isso foi necessário para ajustar as métricas calculadas às métricas do censo de 2022, uma vez que no censo de 2022 estão disponíveis somente dados sobre a renda das pessoas responsáveis pela moradia.
+
+Nesse arquivo, as variáveis `V020`, `V021` e `V022` foram usadas para obter o número de responsáveis e o rendimento médio mensal dos responsáveis do bairro:
+
+- `V020`: total de responsáveis com ou sem rendimento por bairro;
+- `V021`: total de responsáveis com rendimentos positivo;
+- `V022`: soma do rendimento nominal mensal dos responsáveis.
