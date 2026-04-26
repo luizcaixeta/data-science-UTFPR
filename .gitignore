@@ -2,7 +2,7 @@
 *.txt
 *.xls
 *.XLS
+*.xlsx
 *.zip
 venv
 *__pycache__
-/dados_curitiba_censo2010
