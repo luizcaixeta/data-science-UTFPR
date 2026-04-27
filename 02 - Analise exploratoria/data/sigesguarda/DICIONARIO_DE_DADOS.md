@@ -76,7 +76,7 @@ Cada coluna abaixo vale `1` quando pelo menos uma das colunas `NATUREZA1_DESCRIC
 | Coluna | Tipo sugerido | Preenchimento | Descricao |
 |--------|---------------|---------------|-----------|
 | `CRIME_VIOLENTO`                   | inteiro binario | Indicador de ocorrência relacionada a crime violento.                                                         |
-| `CRIME_NAO_VIOLENTO`               | inteiro binario | Indicador de ocorrência relacionada a crime não violento.                                                     |
+| `ATENDIMENTO_OPERACIONAL_ASSISTENCIAL`               | inteiro binario | Ocorrência relacionada a atendimento operacional, apoio, orientação, averiguação ou assistência.                                                     |
 | `ACIDENTE_TRANSITO`                | inteiro binario | Indicador de ocorrência relacionada a acidente de trânsito.                                                   |
 | `ACIDENTE_NATURAL`                 | inteiro binario | Indicador de ocorrência relacionada a evento natural ou ambiental.                                            |
 | `CRIME_PATRIMONIAL`                | inteiro binario | Indicador de ocorrência relacionada a crime patrimonial.                                                      |
@@ -121,73 +121,36 @@ Cada coluna abaixo vale `1` quando pelo menos uma das colunas `NATUREZA1_DESCRIC
 - violencia arbitraria;
 - roubo furto extravio recuperacao apreensao de armas de fogo.
 
-2. As ocorrências categorizadas como não violentas são:
+2. Ocorrências categorizadas como atendimento operacional e assistencial:
 
-- achado;
-- afogamento;
 - aifu;
 - alarmes;
 - antecedentes criminais verificacao;
 - apoio;
-- apreensao de materiais;
-- aterro irregular;
 - atitude suspeita;
-- avaria em equipamento patrimonio nao intencional;
 - averiguacao;
-- averiguacao comercio ilegal;
 - averiguacao cosedi;
 - averiguacao defesa civil;
-- camera off line;
-- cameras de videomonitoramento;
-- comercio ambulante;
-- conduta inconveniente;
-- construcao irregular;
-- corte irregular de arvore;
-- crianca perdida desaparecida;
-- denuncia de bomba;
 - denuncia improcedente;
-- deposito irregular;
-- desaparecimento;
-- descumprimento lei 15799 2021 covid 19;
-- desinteligencia;
-- disturbio;
-- embriaguez;
-- devolucao de coisa achada;
 - encaminhamento;
 - envenenamento;
 - escolta;
 - evento;
-- explosao;
-- extravio de documento;
-- extravio de equipamento;
 - fiscalizacoes e orientacoes;
-- fornecimento de lona;
-- fuga de aluno interno;
-- fuga de paciente;
 - fundada suspeita abordagem;
 - liberacao de pessoa presa apreendida por recusa no recebimento pela dp;
-- manifestacao;
-- material abandonado;
-- menor gazeando aula;
-- menores abordando transeuntes;
 - notificacao;
 - obito;
 - obito defesa civil;
-- obstrucao de via;
-- ocupacao irregular;
 - orgaos acionados;
 - orientacao;
 - paciente usuario alterado;
 - patrulha maria da penha;
-- prostituicao;
 - protecao ao patrimonio;
-- retirada de invasao;
 - ronda;
 - saturacao;
-- situacao de risco;
-- substancia licita;
-- suicidio;
-- vazamento ou derramamento de produto perigoso ou infectante.
+- suicidio.
+
 
 3. Ocorrências categorizadas como acidente de trânsito:
 
