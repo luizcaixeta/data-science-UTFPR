@@ -4,5 +4,13 @@
 *.XLS
 *.xlsx
 *.zip
+*.aux 
+*.bbl
+*.blg 
+*.fdb_latexmk
+*.fls
+*.log 
+*.gz
+*.bib
 venv
 *__pycache__
