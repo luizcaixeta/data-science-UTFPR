@@ -12,5 +12,6 @@
 *.log 
 *.gz
 *.bib
+*.png
 venv
 *__pycache__
