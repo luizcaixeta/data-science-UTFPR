@@ -13,5 +13,6 @@
 *.gz
 *.bib
 *.png
+*.tex
 venv
 *__pycache__
