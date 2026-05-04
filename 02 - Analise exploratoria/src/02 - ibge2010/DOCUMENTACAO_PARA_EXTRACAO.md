@@ -120,3 +120,50 @@ Nesse arquivo, as variáveis `V020`, `V021` e `V022` foram usadas para obter o n
 - `V020`: total de responsáveis com ou sem rendimento por bairro;
 - `V021`: total de responsáveis com rendimentos positivo;
 - `V022`: soma do rendimento nominal mensal dos responsáveis.
+
+## Saneamento básico 
+
+Contém informações sobre características dos domicílios particulares permanentes, especialmente quanto ao abastecimento de água, esgotamento sanitário, existência de banheiro ou sanitário e destino do lixo. Esses dados foram utilizados para calcular indicadores de saneamento básico por bairro. 
+
+Para isso, os dados de saneamento foram extraídos em nível de setor censitário a partir do arquivo `Domicilio01_PR.csv` e posteriormente relacionados aos bairros de Curitiba por meio do arquivo `Basico_PR.csv`.
+
+Como o arquivo de domicílios contém a quantidade de domicílios por tipo de infraestrutura, foi utilizado o total de domicílios particulares permanentes como denominador para calcular as taxas percentuais.
+
+A metodologia utilizada seguiu as seguintes etapas:
+
+1. identificar os setores censitários pertencentes a Curitiba;
+2. relacionar cada setor censitário ao respectivo bairro;
+3. extrair as variáveis de saneamento básico por setor censitário;
+4. agregar os dados por bairro;
+5. calcular os indicadores absolutos de sanemaneto;
+6. calcular os percentuais em relação ao total de domicílios particulares permanentes.
+
+Os indicadores calculados foram:
+
+- domicílios sem abastecimento de água pela rede geral;
+- domicílios sem banheiro de uso exclusivo dos moradores e sem sanitário;
+- domicílios com esgotamento sanitário precário;
+- domicílios com destino inadequado do lixo.
+
+As variáveis utilizadas foram extraídas do arquivo Domicilio01_PR.csv:
+
+- `V002`: domicílios particulares permanentes;
+- `V013`: domicílios com abastecimento de água de poço ou nascente na propriedade;
+- `V014`: domicílios com abastecimento de água da chuva armazenada em cisterna;
+- `V015`: domicílios com outra forma de abastecimento de água;
+- `V019`: domicílios com esgotamento sanitário via fossa rudimentar;
+- `V020`: domicílios com esgotamento sanitário via vala;
+- `V021`: domicílios com esgotamento sanitário via rio, lago ou mar;
+- `V022`: domicílios com esgotamento sanitário via outro escoadouro;
+- `V023`: domicílios sem banheiro de uso exclusivo dos moradores e nem sanitário;
+- `V038`: domicílios com lixo queimado na propriedade;
+- `V039`: domicílios com lixo enterrado na propriedade;
+- `V040`: domicílios com lixo jogado em terreno baldio ou logradouro;
+- `V041`: domicílios com lixo jogado em rio, lago ou mar;
+- `V042`: domicílios com outro destino do lixo.
+
+Para os percentuais, foi utilizado:
+
+$$
+  \text{Percentual do indicador} = \frac{\text{Quantidade de domicílios no indicador}}{\text{Domicílios particulares permanentes}} \times 100
+$$
