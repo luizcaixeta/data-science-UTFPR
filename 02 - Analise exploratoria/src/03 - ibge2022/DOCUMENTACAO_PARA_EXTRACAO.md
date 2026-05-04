@@ -137,3 +137,46 @@ Assim, os indicadores de renda utilizados foram:
 - rendimento médio mensal do responsável em salários mínimos.
 
 As taxas por faixa de salário não foram calculadas pois o arquivo disponível não contém a contagem de responsáveis por faixas de rendimento.
+
+## Saneamento básico
+
+Contém informações sobre características dos domicílios particulares permanentemente ocupados, especialmente quanto à existência de banheiro ou sanitário, esgotamento sanitário, abastecimento de água, destino do lixo e condições estruturais do domicílio.
+
+Nesse projeto, os dados de saneamento básico foram extraídos em nível sde bairro. Portanto, não foi necessário associar setores censitários aos bairros, como ocorreu no Censo 2022.
+
+As variáveis utilizadas para construir os indicadores foram:
+
+- `V00001`: domicílios particulares permanentes ocupados;
+- `V00002`: domicílios particulares improvisados Ocupados;
+- `V00052`: domicílios particulares permanentes ocupados, tipo de espécie é estrutura residencial permanente degradada ou inacabada;
+- `V00238`: domicílios particulares permanentes ocupados, não tinham banheiro nem sanitário;
+- `V00312`: domicílios particulares permanentes ocupados, destinação do esgoto do banheiro ou sanitário ou buraco para dejeções é fossa rudimentar ou buraco;
+- `V00313`: domicílios particulares permanentes ocupados, destinação do esgoto do banheiro ou sanitário ou buraco para dejeções é vala;
+- `V00314`: domicílios particulares permanentes ocupados, destinação do esgoto do banheiro ou sanitário ou buraco para dejeções é rio, lago, córrego ou mar;
+- `V00315`: domicílios particulares permanentes ocupados, destinação do esgoto do banheiro ou sanitário ou buraco para dejeções é outra forma
+- `V00316`: domicílios particulares permanentes ocupados, destinação do esgoto inexistente, pois não tinham banheiro nem sanitário;
+- `V00399`: domicílios particulares permanentes ocupados, lixo queimado na propriedade;
+- `V00400`: domicílios particulares permanentes ocupados, lixo enterrado na propriedade;
+- `V00401`: domicílios particulares permanentes ocupados, lixo jogado em terreno baldio, encosta ou área pública;
+- `V00402`: domicílios particulares permanentes ocupados, outro destino do lixo;
+- `V00464`: domicílios particulares permanentes ocupados, domicílio não possui ligação à rede geral de distribuição de água.
+
+Os indicadores calculados foram:
+
+- domicílios sem banheiro ou sanitário;
+- percentual de domicílios sem banheiro ou sanitário;
+- domicílios com esgotamento sanitário precário;
+- percentual de domicílios com esgotamento sanitário precário;
+- domicílios sem abastecimento de água pela rede geral;
+- percentual de domicílios sem abastecimento de água pela rede geral;
+- domicílios com destino inadequado do lixo;
+- percentual de domicílios com destino inadequado do lixo;
+- domicílios improvisados ou em estrutura degradada;
+- percentual de domicílios improvisados ou em estrutura degradada.
+
+Para o cálculo dos percentuais, foi utilizada a fórmula:
+
+$$
+  \text{Percentual do indicador} = \frac{\text{Quantidade de domicílios no indicador}}{\text{Domicílios particulares permanentemente ocupados}} \times 100
+$$
+
