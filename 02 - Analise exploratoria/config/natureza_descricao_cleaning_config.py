@@ -116,6 +116,11 @@ ATENDIMENTO_OPERACIONAL_ASSISTENCIAL = {
     "evento",
     "fiscalizacoes e orientacoes",
     "fundada suspeita abordagem",
+    "abordagem",
+    "verificacao",
+    "vistoria",
+    "voo drone gmc",
+    "zeladoria urbana",
     "liberacao de pessoa presa apreendida por recusa no recebimento pela dp",
     "notificacao",
     "obito",
@@ -259,6 +264,7 @@ CRIME_ORDEM_PUBLICA = {
     "vilipendio a cadaver",
     "violacao de sepultura tumulo",
     "banho em local improprio",
+    "voo drone irregular",
 }
 
 RISCO_ESTRUTURAL = {
@@ -278,6 +284,7 @@ RISCO_ESTRUTURAL = {
     "risco de queda de fios de energia",
     "risco de queda de poste",
     "situacao de risco",
+    "destelhamento",
 }
 
 EXPLOSIVOS_E_PRODUTOS_PERIGOSOS = {
