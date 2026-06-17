@@ -14,5 +14,6 @@
 *.bib
 *.png
 *.tex
+*.out
 venv
 *__pycache__
